@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 800px;
+        }
+        #a {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            transform: translateZ(50px);
+        }
+        #b {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            transform: skewY(-30deg) translateZ(50px);
+        }
+        #c {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            transform: skewX(-30deg) translateZ(50px);
+        }
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+</body>
+</html>
