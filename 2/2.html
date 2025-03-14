@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Radial Gradient Ellipse</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+       .ellipse {
+            width: 300px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #ff0000 0%, #0000ff 100%);
+            animation: gradientAnimation 5s ease-in-out infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: radial-gradient(circle at center, #ff0000 0%, #0000ff 100%);
+            }
+            50% {
+                background: radial-gradient(circle at 25% 75%, #00ff00 0%, #ffff00 100%);
+            }
+            100% {
+                background: radial-gradient(circle at center, #ff0000 0%, #0000ff 100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ellipse"></div>
+</body>
+
+</html>
