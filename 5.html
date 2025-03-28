@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF - 8">
+    <meta name="viewport" content="width=device-width, initial - scale=1.0">
+    <title>Quadratic Equation Solver</title>
+</head>
+
+<body>
+    <input type="number" id="a" placeholder="a">x² +
+    <input type="number" id="b" placeholder="b">x +
+    <input type="number" id="c" placeholder="c"> = 0
+    <button onclick="solveEquation()">Solve</button>
+    <div id="solutionArea"></div>
+    <script>
+        function solveEquation() {
+            // 获取用户输入的系数
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+
+            // 计算判别式
+            let discriminant = b * b - 4 * a * c;
+
+            let solutionArea = document.getElementById('solutionArea');
+            solutionArea.innerHTML = '';
+
+            if (isNaN(discriminant)) {
+                solutionArea.textContent = '请输入有效的数值';
+                return;
+            }
+
+            if (discriminant > 0) {
+                // 两个不同的实数解
+                let x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                let x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                solutionArea.textContent = `x1 = ${x1}, x2 = ${x2}`;
+            } else if (discriminant === 0) {
+                // 一个实数解
+                let x = -b / (2 * a);
+                solutionArea.textContent = `x = ${x}`;
+            } else {
+                // 复数解
+                let realPart = -b / (2 * a);
+                let imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
+                solutionArea.textContent = `x1 = ${realPart}+${imaginaryPart}i, x2 = ${realPart}-${imaginaryPart}i`;
+            }
+        }
+    </script>
+</body>
+
+</html>
