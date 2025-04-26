@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <table id="tbl">
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>Smith</td>
+        </tr>
+    </table>
+    <script>
+        window.onload = function () {
+            // 获取表格元素
+            const tbl = document.getElementsByTagName('table')[0];
+            // 获取表格的所有行
+            const rows = tbl.rows;
+            // 将行数据提取到数组中
+            const rowData = [];
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].cells;
+                const firstName = cells[0].innerHTML;
+                const lastName = cells[1].innerHTML;
+                rowData.push({ firstName, lastName });
+            }
+            // 按名字首字母排序
+            rowData.sort((a, b) => {
+                return a.firstName.localeCompare(b.firstName);
+            });
+            // 清空原表格
+            while (tbl.firstChild) {
+                tbl.removeChild(tbl.firstChild);
+            }
+            // 将排序后的数据重新添加回表格
+            rowData.forEach(({ firstName, lastName }) => {
+                const newRow = document.createElement('tr');
+                const firstNameCell = document.createElement('td');
+                const lastNameCell = document.createElement('td');
+                firstNameCell.innerHTML = firstName;
+                lastNameCell.innerHTML = lastName;
+                newRow.appendChild(firstNameCell);
+                newRow.appendChild(lastNameCell);
+                tbl.appendChild(newRow);
+            });
+        };
+    </script>
+</body>
+
+</html>
